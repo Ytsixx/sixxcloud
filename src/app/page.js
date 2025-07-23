@@ -1,26 +1,43 @@
-import Head from 'next/head'
+import { useState } from 'react';
 
 export default function SixxHxRx() {
-  return (
-    <>
-      <Head>
-        <title>Sixx Cloud – Teu Site Profissional</title>
-        <meta name="description" content="A plataforma SixxCloud para hospedagem e soluções tecnológicas." />
-        <meta property="og:title" content="Sixx Cloud – Teu Site Profissional" />
-        <meta property="og:description" content="A plataforma SixxCloud para hospedagem e soluções tecnológicas." />
-        <meta property="og:image" content="https://files.catbox.moe/bo4gra.jpeg" />
-        <meta property="og:url" content="https://sixxcloud.vercel.app" />
-      </Head>
+  const [valor, setValor] = useState('');
 
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        margin: 0
-      }}>
-        <h1>SixxHxRx</h1>
-      </div>
-    </>
+  const handleClick = () => {
+    alert(`Você digitou: ${valor}`);
+  };
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      gap: '10px'
+    }}>
+      <input
+        type="text"
+        value={valor}
+        onChange={(e) => setValor(e.target.value)}
+        placeholder="Digite algo"
+        style={{ padding: '10px', fontSize: '16px' }}
+      />
+
+      <button
+        onClick={handleClick}
+        style={{
+          padding: '10px 20px',
+          fontSize: '16px',
+          backgroundColor: '#0070f3',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}
+      >
+        Enviar
+      </button>
+    </div>
   );
 }
